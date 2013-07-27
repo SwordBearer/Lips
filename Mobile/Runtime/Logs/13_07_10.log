@@ -1,0 +1,774 @@
+[ 2013-07-10T21:19:39+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.300314s ]
+INFO: [ route_check ] --END-- [ RunTime:0.361197s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.024964s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.025172s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.047593s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 32 ) LIMIT 1   [ RunTime:0.001683s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.008967s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=32 ORDER BY fans.birth LIMIT 5  [ RunTime:0.017047s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=32 ORDER BY likes.birth LIMIT 5  [ RunTime:0.028865s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=32 ORDER BY subs.birth LIMIT 5  [ RunTime:0.016384s ]
+
+[ 2013-07-10T21:19:40+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001511s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001601s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000788s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000850s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002622s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 32 ) LIMIT 1   [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002269s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=32) AS followers,
+             (SELECT count(id) from lips_fans where userb=32) AS following
+             FROM lips_user AS user WHERE user.id=32 [ RunTime:0.000547s ]
+
+[ 2013-07-10T21:19:46+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000936s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001024s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000730s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.051695s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000342s ]
+
+[ 2013-07-10T21:19:46+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002170s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002370s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001670s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001826s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.030421s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 32 ) LIMIT 1   [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002337s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=32 AND line.id>0 AND (line.uid=32 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=32)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000485s ]
+
+[ 2013-07-10T21:19:47+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001991s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002118s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001115s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002499s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 32 ) LIMIT 1   [ RunTime:0.000325s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002969s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=32 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000323s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=32 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000245s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=32 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000249s ]
+
+[ 2013-07-10T21:19:47+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001948s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002057s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000571s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000629s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002484s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 32 ) LIMIT 1   [ RunTime:0.000347s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002225s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=32) AS followers,
+             (SELECT count(id) from lips_fans where userb=32) AS following
+             FROM lips_user AS user WHERE user.id=32 [ RunTime:0.000341s ]
+
+[ 2013-07-10T21:20:04+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001361s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001471s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000839s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000927s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.019677s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000444s ]
+
+[ 2013-07-10T21:20:17+08:00 ] 192.168.1.108 /lips/mobile.php/users/login
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001042s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001142s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000743s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000816s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004041s ]
+SQL: SELECT id,pwd,token FROM lips_user WHERE email='ranxiedao@163.com' [ RunTime:0.000794s ]
+
+[ 2013-07-10T21:20:17+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000898s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000988s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000558s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000616s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002407s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000353s ]
+
+[ 2013-07-10T21:20:17+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000992s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001078s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000583s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000638s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002966s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002352s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000587s ]
+
+[ 2013-07-10T21:20:24+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000882s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000968s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000608s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000665s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.020317s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000585s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004660s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000690s ]
+
+[ 2013-07-10T21:20:24+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000856s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000930s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000654s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000713s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.020492s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000415s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.005231s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000484s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000667s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000774s ]
+
+[ 2013-07-10T21:20:34+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001096s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001194s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000777s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000851s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002755s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002364s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000506s ]
+
+[ 2013-07-10T21:20:34+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001099s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001192s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000785s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000858s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002574s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000332s ]
+
+[ 2013-07-10T21:20:35+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000837s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000926s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000593s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000650s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003428s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000436s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003205s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000563s ]
+
+[ 2013-07-10T21:20:35+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000568s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000623s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000446s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002623s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002544s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000342s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000259s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000253s ]
+
+[ 2013-07-10T21:32:48+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.003369s ]
+INFO: [ route_check ] --END-- [ RunTime:0.003574s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.002375s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002535s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.019614s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000554s ]
+
+[ 2013-07-10T21:32:49+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001423s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001509s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000852s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000931s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003793s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000386s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002816s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000389s ]
+
+[ 2013-07-10T21:32:49+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001225s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001296s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000568s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000615s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004588s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000495s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002878s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000407s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000294s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000258s ]
+
+[ 2013-07-10T21:32:50+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002088s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002280s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001479s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001622s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003428s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000625s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.003103s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000509s ]
+
+[ 2013-07-10T22:14:09+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002059s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002187s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001117s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001209s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002446s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000339s ]
+
+[ 2013-07-10T22:14:22+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001118s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001217s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000732s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000805s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.003727s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000490s ]
+
+[ 2013-07-10T22:15:56+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001241s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001364s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001008s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001092s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.004466s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000670s ]
+
+[ 2013-07-10T22:17:34+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002060s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002188s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000798s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000859s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002904s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000378s ]
+
+[ 2013-07-10T22:21:07+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001653s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001761s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000968s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001042s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002470s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000278s ]
+
+[ 2013-07-10T22:21:25+08:00 ] 192.168.1.108 /lips/mobile.php/users/login
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001083s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001182s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000802s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004745s ]
+SQL: SELECT id,pwd,token FROM lips_user WHERE email='ranxiedao@163.com' [ RunTime:0.000590s ]
+
+[ 2013-07-10T22:21:26+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001345s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001424s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000769s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000828s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.168704s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.001046s ]
+
+[ 2013-07-10T22:21:26+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001352s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001426s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000764s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000840s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.167305s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.001069s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.009215s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.001807s ]
+
+[ 2013-07-10T22:21:28+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000952s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001041s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000665s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000728s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003341s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000305s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003070s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000482s ]
+
+[ 2013-07-10T22:21:28+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001091s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001197s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000983s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001083s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003846s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003398s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000433s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000394s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000499s ]
+
+[ 2013-07-10T22:24:08+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001490s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001587s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000861s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000931s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.003471s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000314s ]
+
+[ 2013-07-10T22:24:09+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000887s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000945s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000570s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000611s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002382s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000412s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002279s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000532s ]
+
+[ 2013-07-10T22:24:09+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000954s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001012s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000521s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002371s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000410s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002658s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000506s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000303s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000230s ]
+
+[ 2013-07-10T22:24:11+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001381s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001480s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000839s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004580s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000652s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002306s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000537s ]
+
+[ 2013-07-10T22:24:37+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001228s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001341s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000893s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000974s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.015439s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000422s ]
+
+[ 2013-07-10T22:24:37+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001200s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001304s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000885s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000968s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.015808s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002664s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000505s ]
+
+[ 2013-07-10T22:24:38+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001341s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001457s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000701s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000771s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004808s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000583s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003249s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000614s ]
+
+[ 2013-07-10T22:24:38+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001546s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001631s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001162s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001235s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002418s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002292s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000355s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000417s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000353s ]
+
+[ 2013-07-10T22:24:46+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001099s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001196s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000820s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.081679s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.001054s ]
+
+[ 2013-07-10T22:24:46+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001468s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001840s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000772s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000854s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.090674s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000997s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.007922s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.001502s ]
+
+[ 2013-07-10T22:24:48+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001196s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001309s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000933s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001044s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002902s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002687s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000428s ]
+
+[ 2013-07-10T22:24:48+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000745s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000812s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000548s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002577s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000447s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002549s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000417s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000314s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000322s ]
+
+[ 2013-07-10T22:24:51+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001218s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001331s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000851s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000934s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004462s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002627s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000525s ]
+
+[ 2013-07-10T22:24:51+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001473s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001589s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000865s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000945s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002773s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000448s ]
+
+[ 2013-07-10T22:25:00+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001098s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001197s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000804s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.003834s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000522s ]
+
+[ 2013-07-10T22:25:11+08:00 ] 192.168.1.108 /lips/mobile.php/users/login
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000941s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001028s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000666s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000729s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003698s ]
+SQL: SELECT id,pwd,token FROM lips_user WHERE email='ranxiedao@163.com' [ RunTime:0.000594s ]
+
+[ 2013-07-10T22:25:18+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001150s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001239s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000793s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000863s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.057033s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000429s ]
+
+[ 2013-07-10T22:25:18+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001127s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001231s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000858s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.049635s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000288s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002592s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000459s ]
+
+[ 2013-07-10T22:25:19+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.000687s ]
+INFO: [ route_check ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000475s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000521s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002962s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002702s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000508s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000354s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000333s ]
+
+[ 2013-07-10T22:25:19+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001041s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001143s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000503s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000553s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003404s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002493s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000361s ]
+
+[ 2013-07-10T22:26:46+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002686s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002802s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001425s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001546s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.028171s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000550s ]
+
+[ 2013-07-10T22:26:46+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002568s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002711s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001092s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001198s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.028508s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002420s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000458s ]
+
+[ 2013-07-10T22:27:10+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002221s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002374s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000718s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000783s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.003119s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000445s ]
+
+[ 2013-07-10T22:27:16+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001444s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001574s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000595s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000651s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.003108s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000495s ]
+
+[ 2013-07-10T22:27:25+08:00 ] 192.168.1.108 /lips/mobile.php/users/login
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002274s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002411s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000612s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.020941s ]
+SQL: SELECT id,pwd,token FROM lips_user WHERE email='ranxiedao@163.com' [ RunTime:0.000413s ]
+
+[ 2013-07-10T22:27:25+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001816s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002011s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001063s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001169s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.005265s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000610s ]
+
+[ 2013-07-10T22:27:25+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002691s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002822s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001507s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001622s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003160s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000345s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.002343s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000449s ]
+
+[ 2013-07-10T22:27:27+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001417s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001548s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001037s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001135s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004902s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.003228s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000398s ]
+
+[ 2013-07-10T22:27:27+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001463s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001549s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000842s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000909s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002472s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.002421s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000436s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000307s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000282s ]
+
+[ 2013-07-10T22:40:59+08:00 ] 192.168.1.108 /lips/mobile.php/line/categories
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001875s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001996s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001088s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001174s ]
+SQL: SHOW COLUMNS FROM `lips_category` [ RunTime:0.002491s ]
+SQL: SELECT * FROM lips_category ORDER BY listorder [ RunTime:0.000372s ]
+
+[ 2013-07-10T22:41:02+08:00 ] 192.168.1.108 /lips/mobile.php/line/friends_lines
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.003281s ]
+INFO: [ route_check ] --END-- [ RunTime:0.003489s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001164s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001276s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.004302s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000726s ]
+SQL: SHOW COLUMNS FROM `lips_line` [ RunTime:0.003903s ]
+SQL: SELECT author.uname AS author,line.* FROM lips_line AS line,lips_user AS author WHERE author.id=29 AND line.id>0 AND (line.uid=29 OR line.uid in ( SELECT lips_fans.usera FROM lips_fans WHERE lips_fans.userb=29)) ORDER BY line.birth LIMIT 20 [ RunTime:0.000910s ]
+
+[ 2013-07-10T22:41:06+08:00 ] 192.168.1.108 /lips/mobile.php/users/briefinfo
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002130s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002320s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.001540s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001632s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.114522s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000677s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.007762s ]
+SQL: SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
+             (SELECT count(id) from lips_fans where usera=29) AS followers,
+             (SELECT count(id) from lips_fans where userb=29) AS following
+             FROM lips_user AS user WHERE user.id=29 [ RunTime:0.000698s ]
+
+[ 2013-07-10T22:41:06+08:00 ] 192.168.1.108 /lips/mobile.php/users/news
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.002196s ]
+INFO: [ route_check ] --END-- [ RunTime:0.002317s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000636s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000695s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.104941s ]
+SQL: SELECT * FROM `lips_user` WHERE ( `id` = 29 ) LIMIT 1   [ RunTime:0.000749s ]
+SQL: SHOW COLUMNS FROM `lips_user` [ RunTime:0.007635s ]
+SQL:  SELECT fans.birth,userb,user.uname AS userbname FROM lips_fans AS fans,lips_user AS user WHERE fans.userb=user.id  AND usera=29 ORDER BY fans.birth LIMIT 5  [ RunTime:0.000620s ]
+SQL:  SELECT likes.birth,lid,userb,user.uname AS userbname,line.content AS lcon FROM lips_likes AS likes,lips_user AS user,lips_line AS line WHERE likes.userb=user.id AND likes.lid=line.id AND likes.usera=29 ORDER BY likes.birth LIMIT 5  [ RunTime:0.000723s ]
+SQL:  SELECT subs.birth,cid,userb,user.uname AS userbname,clip.name AS cname FROM lips_subs AS subs,lips_user AS user,lips_clip AS clip WHERE subs.userb=user.id AND subs.cid=clip.id AND subs.usera=29 ORDER BY subs.birth LIMIT 5  [ RunTime:0.000799s ]
+
+[ 2013-07-10T22:43:42+08:00 ] 192.168.1.108 /lips/mobile.php/line/clips
+INFO: [ route_check ] --START--
+INFO: Run CheckRoute Behavior [ RunTime:0.001397s ]
+INFO: [ route_check ] --END-- [ RunTime:0.001484s ]
+INFO: [ app_begin ] --START--
+INFO: Run ReadHtmlCache Behavior [ RunTime:0.000779s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000837s ]
+SQL: SHOW COLUMNS FROM `lips_clip` [ RunTime:0.003170s ]
+SQL: SELECT * FROM lips_clip WHERE uid=29 [ RunTime:0.000486s ]
+

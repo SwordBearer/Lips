@@ -50,7 +50,7 @@ class UsersAction extends Action {
 	    	$this->ajaxReturn($result,"getUserInfo SUCCESS",108);
 	    }
 	}
-//需要认证
+	//需要认证
 	public function news(){
 		$this->authorize();
 

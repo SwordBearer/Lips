@@ -1,7 +1,6 @@
 <?php
 class LineAction extends Action{
 /*************authorize**************/
-
 	private function authorize(){
 		$uid=$_REQUEST['uid'];
 		$token=$_REQUEST['token'];
@@ -16,16 +15,34 @@ class LineAction extends Action{
 	}
 
 /**************line*****************/
-	public function lines(){
-		$uid=$_POST['uid'];
-		$firstid=$_POST['fid'];
-		$lastid=$_POST['lid'];
+	/**
+	*param 
+	*/
+	public function friends_lines(){
+		$this->authorize();
+		//
+		$uid=$_REQUEST['uid'];
+		$firstid=$_REQUEST['firstid'];
+		$lastid=$_REQUEST['lastid'];
+		$flag=$_REQUEST['flag'];
+		if(is_null($uid)||is_null($firstid)||is_null($lastid)){
+		    $this->ajaxReturn(null,"get friends_lines FAILED:the parameters cannot be null !",601);
+		}
+		if(is_null($flag)){
+		    $flag=LineModel::FLAG_REFRESH;
+		}
+		$Line =new LineModel();
+		$result=$Line->getFriendsLines($uid,$firstid,$lastid,$flag);
+		if(is_null($result)){
+		    $this->ajaxReturn(null,'get friends_lines FAILED:query error !',601);
+		}else{
+		    $this->ajaxReturn($result,'get friends_lines SUCCESS',602);
+		}
 	}
-
+	
 	public function addline(){
 		$this->authorize();
 		//
-
 		if(is_null($_REQUEST['clipid'])){
 			$this->ajaxReturn(null,"the line's clip cannot be NULL",302);
 		}
@@ -73,7 +90,12 @@ class LineAction extends Action{
 	}
 
 /*****************category*************/
-	public function category(){
+	/**
+	*获取一个用户所有的clip
+	*param uid 用户id
+	*param token 验证的token
+	*/
+	public function categories(){
 		$Cate=M("Category");
 		$sql="SELECT * FROM lips_category ORDER BY listorder";
 		$result=$Cate->query($sql);
@@ -83,10 +105,11 @@ class LineAction extends Action{
 			$this->ajaxReturn($result,"get categories SUCESS ",402);
 		}
 	}
-
-	public function clip(){
-		$this->authorize();
-		//
+	/**
+	*获取一个用户所有的clip
+	*param uid 用户id
+	*/
+	public function clips(){
 		$Clip=M("Clip");
 		$sql="SELECT * FROM lips_clip WHERE uid=".$_REQUEST['uid'];
 		$result=$Clip->query($sql);

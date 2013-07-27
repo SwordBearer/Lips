@@ -8,7 +8,6 @@ class UserModel extends Model{
             return ($res['token']==$token);
         }
     }
-
     public function generateToken($id,$name,$pwd){
     	$condition['id']=$id;
     	$data['token']=md5($id.$name.$pwd);
@@ -27,7 +26,7 @@ class UserModel extends Model{
         $result['snews']=$this->query($sql_subs);
         return $result;
     }
-//获取用户的简要信息
+    //获取用户的简要信息
     public function getBriefInfo($uid){
         $sql="SELECT user.id,user.uname,user.udesc,user.gender,user.grade,
              (SELECT count(id) from lips_fans where usera=".$uid.") AS followers,
